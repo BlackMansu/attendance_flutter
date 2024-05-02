@@ -11,12 +11,12 @@ class Studentinfo_model {
 
 class Attandance_model {
   String? attandance;
-  String? Id;
+  String? studentid;
   String? name;
-  Attandance_model({this.attandance, this.Id, this.name});
+  Attandance_model({this.attandance, this.studentid, this.name});
 
   Attandance_model.fromattandanceinfo(Map<String, dynamic> json)
       : attandance = json["attandance"],
-        Id = json["Id"],
+        studentid = json["studentid"],
         name = json["name"];
 }

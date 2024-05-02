@@ -20,9 +20,9 @@ class _NextpageState extends State<Nextpage> {
   Widget build(BuildContext context) {
     var providers = Provider.of<FirebaseDataHandler>(context);
     print(widget.student.studentid);
-    print(providers.getattandanceList.map((e) => e.Id));
+    print(providers.getattandanceList.map((e) => e.studentid));
     List<Attandance_model> datamatch = providers.getattandanceList
-        .where((element) => element.Id == widget.student.studentid)
+        .where((element) => element.studentid == widget.student.studentid)
         .toList();
     print(datamatch.map((e) => e.attandance));
     return Scaffold(

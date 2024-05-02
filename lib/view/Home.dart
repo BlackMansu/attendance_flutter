@@ -2,6 +2,7 @@
 
 import 'package:analog_clock/analog_clock.dart';
 import 'package:attendance_app/repository/functions.dart';
+import 'package:attendance_app/repository/showDilog.dart';
 import 'package:attendance_app/services/color_theme.dart';
 import 'package:attendance_app/services/text_theme.dart';
 import 'package:attendance_app/utils/navigate.dart';
@@ -23,8 +24,6 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int cont = 1;
-  List<int> selectindex = [];
-  List<String> attandance = ["Absent", "Present"];
 
   @override
   // List<String> attandance = ["Present", "Absent"];
@@ -130,76 +129,11 @@ class _HomeState extends State<Home> {
                         onTap: () {
                           showDialog(
                               context: context,
-                              builder: (context) => Dialog(
-                                    backgroundColor: Colors.lime.shade50,
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(10.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          AnalogClock(
-                                            height: 0.2.sh,
-                                            decoration: BoxDecoration(
-                                                border: Border.all(
-                                                    width: 2.0,
-                                                    color: Colors.black),
-                                                color: Colors.transparent,
-                                                shape: BoxShape.circle),
-                                            width: 160.0,
-                                            isLive: true,
-                                            hourHandColor: Colors.black,
-                                            minuteHandColor: Colors.black,
-                                            showSecondHand: false,
-                                            numberColor: Colors.black87,
-                                            showNumbers: true,
-                                            showAllNumbers: false,
-                                            textScaleFactor: 1.4,
-                                            showTicks: false,
-                                            showDigitalClock: true,
-                                            datetime: DateTime.now(),
-                                          ),
-                                          Space.addheight(10),
-                                          Row(
-                                            children: [
-                                              ...List.generate(
-                                                attandance.length,
-                                                (index) => Expanded(
-                                                  child: Padding(
-                                                    padding: const EdgeInsets
-                                                        .symmetric(
-                                                        horizontal: 10),
-                                                    child: Txtbtn(
-                                                        navigator: () {
-                                                          providers.setattandanceDataFirebase(
-                                                              attandance[index],
-                                                              providers
-                                                                  .getstudentinfoList[
-                                                                      index]
-                                                                  .studentid
-                                                                  .toString(),
-                                                              providers
-                                                                  .getstudentinfoList[
-                                                                      index]
-                                                                  .name
-                                                                  .toString());
-
-                                                          Navigate.back(
-                                                              context);
-                                                        },
-                                                        text:
-                                                            attandance[index]),
-                                                  ),
-                                                ),
-                                              )
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ));
+                              builder: (context) => ComanDilog(
+                                  model: providers.getstudentinfoList[index]));
                         },
                       ),
-                    ),
+                    )
                     // Divider(
                     //   color: Colors.blueAccent,
                     //   thickness: 1,

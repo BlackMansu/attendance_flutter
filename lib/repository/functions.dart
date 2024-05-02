@@ -46,7 +46,7 @@ class FirebaseDataHandler extends ChangeNotifier {
   //  Set Data Firebase
   void setattandanceDataFirebase(
       String attandance, String ID, String name) async {
-    final json = {"attandance": attandance, "Id": ID, "name": name};
+    final json = {"attandance": attandance, "studentid": ID, "name": name};
     await _firestore.collection("attandance").add(json);
     notifyListeners();
   }

@@ -4,7 +4,6 @@ import 'package:attendance_app/repository/model.dart';
 import 'package:attendance_app/services/color_theme.dart';
 import 'package:attendance_app/services/text_theme.dart';
 import 'package:attendance_app/utils/space.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -20,8 +19,8 @@ class Nextpage extends StatefulWidget {
 class _NextpageState extends State<Nextpage> {
   Widget build(BuildContext context) {
     var providers = Provider.of<FirebaseDataHandler>(context);
-    // print(widget.student.studentid);
-    // print(providers.getattandanceList.map((e) => e.Id));
+    print(widget.student.studentid);
+    print(providers.getattandanceList.map((e) => e.Id));
     List<Attandance_model> datamatch = providers.getattandanceList
         .where((element) => element.Id == widget.student.studentid)
         .toList();

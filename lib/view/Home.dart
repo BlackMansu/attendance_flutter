@@ -171,18 +171,14 @@ class _HomeState extends State<Home> {
                                                     child: Txtbtn(
                                                         navigator: () {
                                                           providers.setattandanceDataFirebase(
+                                                              attandance[index],
                                                               providers
-                                                                  .getattandanceList[
+                                                                  .getstudentinfoList[
                                                                       index]
-                                                                  .attandance
+                                                                  .studentid
                                                                   .toString(),
                                                               providers
-                                                                  .getattandanceList[
-                                                                      index]
-                                                                  .Id
-                                                                  .toString(),
-                                                              providers
-                                                                  .getattandanceList[
+                                                                  .getstudentinfoList[
                                                                       index]
                                                                   .name
                                                                   .toString());
